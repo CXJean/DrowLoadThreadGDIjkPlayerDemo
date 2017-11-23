@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+//greendao
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
+    defaultConfig {
+        applicationId "xuejian.bwie.com.drowloadthreadgdijkplayerdemo"
+        minSdkVersion 19
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+//自定义路径
+greendao {
+    schemaVersion 1
+    daoPackage 'xuejian.bwie.com.drowloadthreadgdijkplayerdemo.gen'
+    targetGenDir 'src/main/java'
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    testCompile 'junit:junit:4.12'
+
+    //greendao
+    compile 'org.greenrobot:greendao:3.2.0'
+    //retrofit2+rxandroid+okhttp3
+    compile 'com.squareup.retrofit2:retrofit:2.0.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.1'
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    /*recyclerview*/
+    compile 'com.github.liuguangqiang.SuperRecyclerView:super-recyclerview:0.1.2'
+    /*xRecyclerview*/
+    compile 'com.jcodecraeer:xrecyclerview:1.3.2'
+    //fresco
+    compile 'com.facebook.fresco:fresco:0.14.1'
+    //    logger日志的使用
+    compile 'com.orhanobut:logger:2.1.1'
+
+    //banner使用
+    compile 'com.youth.banner:banner:1.4.9'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+}
